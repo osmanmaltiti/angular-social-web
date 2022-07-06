@@ -1,0 +1,52 @@
+<nav
+  class="w-full sticky top-0 h-[3rem] bg-gradient-to-b from-gray-400 to-transparent flex flex-row items-center"
+>
+  <div class="flex flex-row w-full justify-between lg:px-8">
+    <span class="relative hidden lg:inline">
+      <input
+        type="search"
+        [(ngModel)]="searchValue"
+        class="bg-transparent border-b border-primary-black focus:outline-none text-primary-black pl-6 py-1"
+      />
+      <span
+        class="iconify absolute top-1/2 -translate-y-[50%] text-primary-black"
+        data-icon="fe:search"
+      ></span>
+    </span>
+
+    <button
+      (click)="onToggleDropdown()"
+      class="w-fit ml-auto lg:ml-0 flex flex-row items-center"
+    >
+      <span
+        class="iconify text-3xl text-primary-black"
+        data-icon="carbon:user-avatar-filled"
+      ></span>
+      <span
+        class="iconify text-xl text-primary-black"
+        data-icon="ant-design:caret-down-filled"
+      ></span>
+    </button>
+  </div>
+  <div
+    *ngIf="mobileDropdown"
+    class="absolute lg:hidden top-[3rem] left-0 bg-transparent h-[8.5rem] py-2 w-full flex flex-col items-center gap-2"
+  >
+    <span class="relative w-fit">
+      <input
+        type="search"
+        [(ngModel)]="searchValue"
+        class="bg-transparent border-b border-primary-black focus:outline-none text-primary-black pl-6 py-1"
+      />
+      <span
+        class="iconify absolute top-1/2 -translate-y-[50%] text-primary-black"
+        data-icon="fe:search"
+      ></span>
+    </span>
+    <ul class="flex flex-col w-full items-center text-primary-black">
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Explore</a></li>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,1 +1,39 @@
-<p>home works!</p>
+<section class="w-full h-full">
+  <app-navbar></app-navbar>
+  <div class="w-full h-[calc(100vh-3rem)] flex flex-col overflow-y-auto">
+    <div
+      [ngClass]="{ toggled: writePost }"
+      class="w-full h-0 bg-white shadow-lg flex flex-row overflow-hidden gap-2 transition-all"
+    >
+      <div class="rounded-full w-14 h-14 bg-red-400 flex-shrink-0"></div>
+      <span class="flex flex-col w-full gap-2">
+        <div class="w-full h-[108px] flex-shrink-0 bg-white relative">
+          <textarea
+            class="w-full h-full bg-white ring-gray-300 rounded focus:ring-primary-black ring-1 resize-none relative p-1 focus:outline-none"
+          ></textarea>
+          <div
+            class="w-[2rem] h-[2rem] rounded-full bg-sky-400 absolute bottom-2 right-2 grid place-items-center text-primary-cream"
+          >
+            <span class="iconify text-xl" data-icon="akar-icons:send"></span>
+          </div>
+        </div>
+        <ul class="flex flex-row w-full justify-between">
+          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Image</li>
+          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Video</li>
+          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Audio</li>
+        </ul>
+      </span>
+    </div>
+    <button
+      (click)="toggleWritePost()"
+      class="w-[2.5rem] h-[2.5rem] rounded-full bg-sky-400 fixed bottom-2 right-2 grid place-items-center text-primary-cream"
+    >
+      <div [ngClass]="{ pencil: writePost }">
+        <span class="iconify text-2xl" data-icon="jam:pencil-f"></span>
+      </div>
+      <div [ngClass]="{ close: !writePost }">
+        <span class="iconify text-2xl" data-icon="ep:close-bold"></span>
+      </div>
+    </button>
+  </div>
+</section>

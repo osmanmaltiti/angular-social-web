@@ -1,0 +1,13 @@
+.toggled {
+  height: 10.5rem;
+  padding: 0.5rem;
+  transition: 100ms linear;
+}
+
+.pencil {
+  display: none;
+}
+
+.close {
+  display: none;
+}

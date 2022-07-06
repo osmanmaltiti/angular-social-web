@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { AdvancedHighlightDirective } from './directives/advanced-highlight.directive';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { HomeComponent } from './home/home.component';
     AuthenticationComponent,
     RegisterComponent,
     HomeComponent,
+    AdvancedHighlightDirective,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

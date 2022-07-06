@@ -1,0 +1,21 @@
+main::-webkit-scrollbar {
+  display: none;
+}
+main::-webkit-scrollbar-thumb {
+  width: 0.45rem;
+  border-radius: 20px;
+  background-color: rgb(91, 88, 88);
+}
+
+@media (min-width: 768px) {
+  main::-webkit-scrollbar {
+    display: flex;
+    width: 0.45rem;
+  }
+
+  main::-webkit-scrollbar-thumb {
+    width: 0.45rem;
+    border-radius: 20px;
+    background-color: rgb(91, 88, 88);
+  }
+}

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   writePost: boolean = false;
+  dummyArray: number[] = [1, 2, 3, 4, 5, 6, 7];
 
   toggleWritePost() {
     this.writePost = !this.writePost;

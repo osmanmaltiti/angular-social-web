@@ -8,6 +8,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { AdvancedHighlightDirective } from './directives/advanced-highlight.directive';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PostCardComponent } from './home/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     AdvancedHighlightDirective,
     NavbarComponent,
+    PostCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

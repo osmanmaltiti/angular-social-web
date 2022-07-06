@@ -1,0 +1,49 @@
+<span class="flex flex-col w-[80%]"
+  ><label for="fullname">Full Name</label>
+  <input
+    id="fullname"
+    type="text"
+    placeholder=""
+    [(ngModel)]="fullname"
+    class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+/></span>
+<span class="flex flex-col w-[80%]"
+  ><label for="email">Email</label>
+  <input
+    id="email"
+    type="email"
+    placeholder=""
+    [(ngModel)]="email"
+    class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+/></span>
+<span class="flex flex-col w-[80%]"
+  ><label for="username">Username</label>
+  <input
+    id="username"
+    type="text"
+    placeholder=""
+    [(ngModel)]="username"
+    class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+/></span>
+<span class="flex flex-col w-[80%] relative"
+  ><label for="password">Password</label>
+  <input
+    id="password"
+    class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+    placeholder=""
+    [(ngModel)]="password"
+  />
+  <button>
+    <span
+      class="iconify absolute right-0 bottom-2 text-lg text-gray-400 hover:text-black"
+      data-icon="gridicons:visible"
+    ></span>
+    <span
+      class="iconify absolute right-0 bottom-2 text-lg text-gray-400 hover:text-black"
+      data-icon="gridicons:not-visible"
+    ></span>
+  </button>
+</span>
+<button (click)="onSignUp()" class="bg-sky-500 px-6 py-2 text-white">
+  Sign Up
+</button>

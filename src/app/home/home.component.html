@@ -1,40 +1,40 @@
-<section class="w-full h-full relative">
-  <div id="main-home" class="w-full h-full pt-[3rem] flex flex-col">
+<section class="w-full h-full overflow-y-auto absolute">
+  <div id="main-home" class="w-full flex flex-col lg:flex-row pt-[3.5rem]">
+    <!-- Navbar -->
     <app-navbar></app-navbar>
+    <!-- PostBox -->
+    <app-postbox [setOpen]="openPostBox"></app-postbox>
+    <!-- MiniProfileCard -->
+    <app-miniprofilecard
+      class="hidden lg:flex w-[30%] sticky top-[3.5rem] h-fit flex-col items-center 2xl:items-end 2xl:mr-4"
+    ></app-miniprofilecard>
+    <!--PostCards-->
     <div
-      [ngClass]="{ toggled: writePost }"
-      class="w-full h-0 bg-white fixed top-0 left-0 shadow-lg flex flex-row overflow-hidden gap-2 transition-all"
+      class="flex flex-col gap-y-2 w-full h-full lg:w-[40%] mx-auto flex-shrink-0"
     >
-      <div class="rounded-full w-14 h-14 bg-red-400 flex-shrink-0"></div>
-      <span class="flex flex-col w-full gap-2">
-        <div class="w-full h-[108px] flex-shrink-0 bg-white relative">
-          <textarea
-            class="w-full h-full bg-white ring-gray-300 rounded focus:ring-primary-black ring-1 resize-none relative p-1 focus:outline-none"
-          ></textarea>
-          <div
-            class="w-[2rem] h-[2rem] rounded-full bg-sky-400 absolute bottom-2 right-2 grid place-items-center text-primary-cream"
-          >
-            <span class="iconify text-xl" data-icon="akar-icons:send"></span>
-          </div>
-        </div>
-        <ul class="flex flex-row w-full justify-between">
-          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Image</li>
-          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Video</li>
-          <li class="bg-sky-400 text-white px-6 py-1 text-sm rounded">Audio</li>
-        </ul>
-      </span>
+      <app-post-card
+        *ngFor="let post of posts"
+        [postData]="post"
+      ></app-post-card>
     </div>
-    <div class="flex flex-col gap-2">
-      <app-post-card *ngFor="let number of dummyArray"></app-post-card>
+    <!-- TrendingAndChatCards -->
+    <div
+      class="hidden lg:flex flex-col w-[30%] h-[calc(100vh-3.5rem)] gap-4 lg:flex-col sticky top-[3.5rem] 2xl:pl-4"
+    >
+      <!-- Trending -->
+      <app-trending class="h-[48%]"></app-trending>
+      <!-- Chat -->
+      <app-chat class="h-[48%]"></app-chat>
     </div>
+    <!-- FloatActionButton -->
     <button
-      (click)="toggleWritePost()"
+      (click)="togglePostBox()"
       class="w-[2.5rem] h-[2.5rem] rounded-full bg-sky-400 fixed bottom-2 right-2 grid place-items-center text-primary-cream"
     >
-      <div [ngClass]="{ pencil: writePost }">
+      <div [ngClass]="{ pencil: openPostBox }">
         <span class="iconify text-2xl" data-icon="jam:pencil-f"></span>
       </div>
-      <div [ngClass]="{ close: !writePost }">
+      <div [ngClass]="{ close: !openPostBox }">
         <span class="iconify text-2xl" data-icon="ep:close-bold"></span>
       </div>
     </button>

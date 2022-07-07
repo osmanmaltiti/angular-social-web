@@ -1,15 +1,16 @@
 <nav
-  class="w-full fixed top-0 h-[3rem] bg-gradient-to-b from-gray-600 to-transparent flex flex-row items-center z-20"
+  class="w-full fixed top-0 h-[3rem] bg-gradient-to-b from-gray-600 to-transparent flex flex-row items-center z-20 lg:from-[#3f3f3f] lg:to-[#3f3f3f]"
 >
-  <div class="flex flex-row w-full justify-between lg:px-8">
+  <div class="flex flex-row w-full justify-between 2xl:justify-around lg:px-8">
     <span class="relative hidden lg:inline">
       <input
-        type="search"
+        type="text"
         [(ngModel)]="searchValue"
-        class="bg-transparent border-b border-primary-black focus:outline-none text-primary-black pl-6 py-1"
+        placeholder="What're you looking for?"
+        class="bg-white rounded-full text-primary-black focus:outline-none pl-6 pr-1 py-1 shadow-lg w-[20rem]"
       />
       <span
-        class="iconify absolute top-1/2 -translate-y-[50%] text-primary-black"
+        class="iconify absolute top-1/2 -translate-y-[50%] left-1 text-primary-black"
         data-icon="fe:search"
       ></span>
     </span>
@@ -19,11 +20,11 @@
       class="w-fit ml-auto lg:ml-0 flex flex-row items-center"
     >
       <span
-        class="iconify text-3xl text-primary-black"
+        class="iconify text-3xl text-primary-black lg:text-white"
         data-icon="carbon:user-avatar-filled"
       ></span>
       <span
-        class="iconify text-xl text-primary-black"
+        class="iconify text-xl text-primary-black lg:text-white"
         data-icon="ant-design:caret-down-filled"
       ></span>
     </button>

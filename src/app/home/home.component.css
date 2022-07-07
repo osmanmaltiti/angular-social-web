@@ -1,14 +1,29 @@
-.toggled {
-  height: 13.5rem;
-  padding: 0.5rem;
-  transition: 100ms linear;
-  padding-top: 3.5rem;
-}
-
 .pencil {
   display: none;
 }
 
 .close {
   display: none;
+}
+
+section::-webkit-scrollbar {
+  display: none;
+}
+section::-webkit-scrollbar-thumb {
+  width: 0.45rem;
+  border-radius: 20px;
+  background-color: rgb(91, 88, 88);
+}
+
+@media (min-width: 768px) {
+  section::-webkit-scrollbar {
+    display: flex;
+    width: 0.45rem;
+  }
+
+  section::-webkit-scrollbar-thumb {
+    width: 0.45rem;
+    border-radius: 20px;
+    background-color: rgb(91, 88, 88);
+  }
 }

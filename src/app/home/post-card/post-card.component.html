@@ -1,10 +1,17 @@
 <div class="w-full bg-primary-cream flex flex-col p-2 gap-2">
   <div class="flex flex-row w-full justify-between">
     <span class="flex flex-row gap-1">
-      <span class="w-12 h-12 rounded-full bg-red-400"></span>
+      <span class="w-12 h-12 rounded-full overflow-hidden shadow bg-red-400">
+        <img
+          alt="cover"
+          src="../../../assets/profile.jpg"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </span>
       <ul class="flex flex-col">
-        <li class="text-base">Full Name</li>
-        <li class="text-sm font-light">username</li>
+        <li class="text-base">{{ postData.fullname }}</li>
+        <li class="text-sm font-light">{{ postData.username }}</li>
       </ul>
     </span>
     <span
@@ -12,27 +19,24 @@
       data-icon="carbon:overflow-menu-horizontal"
     ></span>
   </div>
-  <div class="ml-[3.25rem] text-sm">
-    In nulla magna quis nisi sint eu exercitation incididunt incididunt
-    consequat aliquip exercitation irure. Cupidatat pariatur cupidatat voluptate
-    ex sunt adipisicing consectetur duis occaecat exercitation id. Esse ut Lorem
-    elit sit ut tempor aliquip.
+  <div class="text-sm w-full px-2">
+    {{ postData.post }}
   </div>
-  <ul class="ml-[3.25rem] gap-6 flex flex-row">
+  <ul class="justify-evenly flex flex-row">
     <li class="flex flex-row items-center gap-1">
       <span class="iconify text-2xl" data-icon="icon-park-outline:like"></span>
-      <p>100</p>
+      <p>{{ interactions.likes }}</p>
     </li>
     <li class="flex flex-row items-center gap-1">
       <span
         class="iconify text-2xl"
         data-icon="icon-park-outline:dislike"
       ></span>
-      <p>100</p>
+      <p>{{ interactions.unlikes }}</p>
     </li>
     <li class="flex flex-row items-center gap-1">
       <span class="iconify text-2xl" data-icon="bx:comment-detail"></span>
-      <p>100</p>
+      <p>{{ interactions.comments }}</p>
     </li>
   </ul>
 </div>

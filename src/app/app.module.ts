@@ -9,6 +9,12 @@ import { AdvancedHighlightDirective } from './directives/advanced-highlight.dire
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostCardComponent } from './home/post-card/post-card.component';
+import { MiniprofilecardComponent } from './home/miniprofilecard/miniprofilecard.component';
+import { TrendingComponent } from './home/trending/trending.component';
+import { ChatComponent } from './home/chat/chat.component';
+import { PostboxComponent } from './home/postbox/postbox.component';
+import { TrendingCardComponent } from './home/trending/trending-card/trending-card.component';
+import { OnlineComponent } from './home/chat/online/online.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,12 @@ import { PostCardComponent } from './home/post-card/post-card.component';
     AdvancedHighlightDirective,
     NavbarComponent,
     PostCardComponent,
+    MiniprofilecardComponent,
+    TrendingComponent,
+    ChatComponent,
+    PostboxComponent,
+    TrendingCardComponent,
+    OnlineComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

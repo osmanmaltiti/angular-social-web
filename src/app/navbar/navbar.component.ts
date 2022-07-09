@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,13 @@ export class NavbarComponent implements OnInit {
     this.mobileDropdown = !this.mobileDropdown;
   }
 
-  constructor() {}
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    this.router.navigate(['/auth']);
+  }
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

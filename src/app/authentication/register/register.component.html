@@ -12,6 +12,7 @@
       ngModel
       name="fullname"
       class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+      required
   /></span>
   <span class="flex flex-col w-[80%]"
     ><label for="email">Email</label>
@@ -22,6 +23,7 @@
       ngModel
       name="email"
       class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+      required
   /></span>
   <span class="flex flex-col w-[80%]"
     ><label for="username">Username</label>
@@ -32,12 +34,14 @@
       ngModel
       name="username"
       class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+      required
   /></span>
   <span class="flex flex-col w-[80%] relative"
     ><label for="password">Password</label>
     <input
       id="password"
       class="w-full px-2 border-b-2 border-gray-400 focus:border-black focus:outline-none"
+      required
       placeholder=""
       ngModel
       name="password"
@@ -60,3 +64,8 @@
     Sign Up
   </button>
 </form>
+<app-alert
+  *ngIf="errorMessage !== ''"
+  [error-message]="errorMessage"
+  (closeAlert)="closeAlert($event)"
+></app-alert>

@@ -13,13 +13,15 @@
   <span class="flex flex-col w-full gap-2">
     <div class="w-full h-[108px] flex-shrink-0 bg-white relative">
       <textarea
+        [(ngModel)]="post"
         class="w-full h-full bg-white ring-gray-300 rounded focus:ring-primary-black ring-1 resize-none relative p-1 focus:outline-none"
       ></textarea>
-      <div
+      <button
+        (click)="createPost()"
         class="w-[2rem] h-[2rem] rounded-full bg-[#3f3f3f] absolute bottom-2 right-2 grid place-items-center text-primary-cream"
       >
         <span class="iconify text-xl" data-icon="akar-icons:send"></span>
-      </div>
+      </button>
     </div>
     <ul class="flex flex-row w-full justify-between">
       <li class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded">Image</li>

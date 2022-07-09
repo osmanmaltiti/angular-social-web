@@ -10,17 +10,22 @@
         />
       </span>
       <ul class="flex flex-col">
-        <li class="text-base">{{ postData.fullname }}</li>
-        <li class="text-sm font-light">{{ postData.username }}</li>
+        <li class="text-base">{{ postData.fullName }}</li>
+        <li class="text-sm font-light">@{{ postData.userName }}</li>
       </ul>
     </span>
-    <span
-      class="iconify text-2xl"
-      data-icon="carbon:overflow-menu-horizontal"
-    ></span>
+    <ul class="flex flex-col">
+      <li class="text-base">
+        <span
+          class="iconify text-2xl"
+          data-icon="carbon:overflow-menu-horizontal"
+        ></span>
+      </li>
+      <li class="text-sm font-light">{{ timeCreated.getFullYear() }}</li>
+    </ul>
   </div>
   <div class="text-sm w-full px-2">
-    {{ postData.body }}
+    {{ postData.post }}
   </div>
   <ul class="justify-evenly flex flex-row">
     <li class="flex flex-row items-center gap-1">

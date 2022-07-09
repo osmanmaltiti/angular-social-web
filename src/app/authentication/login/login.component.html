@@ -51,3 +51,8 @@
     Sign In
   </button>
 </form>
+<app-alert
+  *ngIf="errorMessage !== ''"
+  [error-message]="errorMessage"
+  (closeAlert)="closeAlert($event)"
+></app-alert>

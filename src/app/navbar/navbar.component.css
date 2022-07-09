@@ -5,3 +5,10 @@
   overflow: visible;
   background-color: green;
 }
+
+.dropdownmenu {
+  width: 60%;
+  justify-items: flex-end;
+  overflow: visible;
+  padding: 4rem 0.25rem;
+}

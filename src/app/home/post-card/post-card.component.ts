@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IPosts } from '../post.service';
+import { IPosts } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-card',
@@ -9,11 +9,13 @@ import { IPosts } from '../post.service';
 export class PostCardComponent implements OnInit {
   @Input('postData') postData: IPosts = {
     id: '',
-    fullname: '',
-    username: '',
+    fullName: '',
+    userName: '',
     post: '',
-    body: '',
+    createdAt: '',
   };
+  timeCreated = new Date(Number(this.postData.createdAt));
+
   interactions: { likes: number; unlikes: number; comments: number } = {
     likes: 10,
     unlikes: 20,

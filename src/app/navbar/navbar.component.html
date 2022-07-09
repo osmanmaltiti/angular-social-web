@@ -29,25 +29,34 @@
       ></span>
     </button>
   </div>
-  <div
-    *ngIf="mobileDropdown"
-    class="absolute lg:hidden top-[3rem] left-0 bg-transparent h-[8.5rem] py-2 w-full flex flex-col items-center gap-2"
-  >
-    <span class="relative w-fit">
-      <input
-        type="search"
-        [(ngModel)]="searchValue"
-        class="bg-transparent border-b border-primary-black focus:outline-none text-primary-black pl-6 py-1"
-      />
-      <span
-        class="iconify absolute top-1/2 -translate-y-[50%] text-primary-black"
-        data-icon="fe:search"
-      ></span>
-    </span>
-    <ul class="flex flex-col w-full items-center text-primary-black">
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">Explore</a></li>
-      <li><a href="#">Log Out</a></li>
-    </ul>
-  </div>
 </nav>
+<aside
+  [ngClass]="{ dropdownmenu: mobileDropdown }"
+  class="fixed lg:hidden right-0 top-0 bg-primary-cream overflow-hidden w-0 h-screen flex flex-col items-center gap-2 shadow-lg transition-all pt-[4rem]"
+>
+  <span class="relative w-[90%] mx-auto">
+    <input
+      type="text"
+      [(ngModel)]="searchValue"
+      placeholder="What're you looking for?"
+      class="bg-white rounded-full text-primary-black focus:outline-none pl-6 pr-1 py-1 shadow-lg w-full"
+    />
+    <span
+      class="iconify absolute top-1/2 -translate-y-[50%] left-1 text-primary-black"
+      data-icon="fe:search"
+    ></span>
+  </span>
+  <ul class="flex flex-col w-full mt-4 items-center text-primary-black gap-2">
+    <li class="hover:bg-white hover:shadow w-[90%] py-1 rounded">
+      <button class="w-full mx-auto" href="#">Profile</button>
+    </li>
+    <li class="hover:bg-white hover:shadow w-[90%] py-1 rounded">
+      <button class="w-full mx-auto" href="#">Explore</button>
+    </li>
+    <li
+      class="hover:bg-red-500 hover:text-white hover:shadow w-[90%] py-1 rounded"
+    >
+      <button type="button" class="w-full" (click)="logout()">Log Out</button>
+    </li>
+  </ul>
+</aside>

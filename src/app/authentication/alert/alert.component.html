@@ -1,0 +1,14 @@
+<section
+  #outsideDialog
+  (click)="clickOutside($event)"
+  class="w-screen h-screen grid place-items-center bg-[#00000061] fixed top-0 left-0 select-none"
+>
+  <div
+    class="w-[80%] h-[15rem] lg:w-[30rem] bg-white text-center capitalize leading-[15rem] rounded relative"
+  >
+    <button (click)="onCloseAlert()" class="absolute top-2 right-2">
+      <span class="iconify text-primary-black" data-icon="ep:close-bold"></span>
+    </button>
+    {{ errorMessage }}
+  </div>
+</section>

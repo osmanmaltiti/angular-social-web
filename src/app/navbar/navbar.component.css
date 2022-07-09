@@ -1,0 +1,7 @@
+.open {
+  height: 15rem;
+  width: 100%;
+  justify-items: flex-end;
+  overflow: visible;
+  background-color: green;
+}

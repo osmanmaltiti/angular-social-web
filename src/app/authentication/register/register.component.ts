@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface ISignUpInfo {
   fullname: string;
@@ -13,21 +15,11 @@ export interface ISignUpInfo {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  @Output() signUp = new EventEmitter<ISignUpInfo>();
-  fullname: string = '';
-  email: string = '';
-  username: string = '';
-  password: string = '';
+  constructor(private router: Router) {}
 
-  constructor() {}
-
-  onSignUp() {
-    this.signUp.emit({
-      fullname: this.fullname,
-      email: this.email,
-      username: this.username,
-      password: this.password,
-    });
+  onSignUp(formData: NgForm) {
+    alert(JSON.stringify(formData.value));
+    this.router.navigate(['/']);
   }
   ngOnInit(): void {}
 }

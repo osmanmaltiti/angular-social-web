@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ISignUpInfo } from './register/register.component';
 
 @Component({
@@ -7,22 +8,13 @@ import { ISignUpInfo } from './register/register.component';
   styleUrls: ['./authentication.component.css'],
 })
 export class AuthenticationComponent {
-  obscure: boolean = true;
   passwordFieldType: 'password' | 'text' = 'password';
   email: string = '';
   password: string = '';
   newUser: boolean = false;
   toggleButton: string = 'New User';
 
-  onObscure() {
-    this.obscure = !this.obscure;
-    if (this.obscure) this.passwordFieldType = 'password';
-    else this.passwordFieldType = 'text';
-  }
-
-  onLogin() {
-    alert(JSON.stringify({ email: this.email, password: this.password }));
-  }
+  constructor(private router: Router) {}
 
   onSignUp(signUpInfo: ISignUpInfo) {
     alert(JSON.stringify(signUpInfo));
@@ -30,7 +22,12 @@ export class AuthenticationComponent {
 
   onToggleForm() {
     this.newUser = !this.newUser;
-    if (this.newUser) this.toggleButton = 'Log In';
-    else this.toggleButton = 'New User';
+    if (this.newUser) {
+      this.router.navigate(['/auth/register']);
+      this.toggleButton = 'Log In';
+    } else {
+      this.router.navigate(['/auth']);
+      this.toggleButton = 'New User';
+    }
   }
 }

@@ -1,0 +1,53 @@
+<form
+  (ngSubmit)="onLogin(f)"
+  #f="ngForm"
+  class="flex flex-col gap-6 w-full lg:w-[25rem] h-screen lg:h-full items-center justify-center bg-white"
+>
+  <span class="flex flex-col w-[80%]"
+    ><label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      ngModel
+      name="email"
+      placeholder=""
+      class="w-full px-2 py-1 border-b-2 border-gray-400 focus:border-primary-black focus:outline-none"
+  /></span>
+  <span class="flex flex-col w-[80%] relative"
+    ><label for="password">Password</label>
+    <input
+      id="password"
+      ngModel
+      name="password"
+      [type]="passwordFieldType"
+      class="w-full px-2 py-1 border-b-2 border-gray-400 focus:border-primary-black focus:outline-none"
+      placeholder=""
+    />
+    <button
+      *ngIf="passwordFieldType === 'password'"
+      (click)="onObscure()"
+      class="absolute right-2 bottom-2"
+    >
+      <span
+        class="iconify text-lg text-gray-400 hover:text-black"
+        data-icon="gridicons:visible"
+      ></span>
+    </button>
+    <button
+      *ngIf="passwordFieldType === 'text'"
+      (click)="onObscure()"
+      class="absolute right-2 bottom-2"
+    >
+      <span
+        class="iconify text-lg text-gray-400 hover:text-black"
+        data-icon="gridicons:not-visible"
+      ></span>
+    </button>
+  </span>
+  <button
+    type="submit"
+    class="bg-sky-500 w-[7rem] py-2 text-white hover:-translate-y-[2px] hover:shadow-xl transition-all"
+  >
+    Sign In
+  </button>
+</form>

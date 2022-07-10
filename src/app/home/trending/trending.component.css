@@ -1,0 +1,9 @@
+div::-webkit-scrollbar {
+  display: flex;
+  width: 0.45rem;
+}
+div::-webkit-scrollbar-thumb {
+  width: 0.45rem;
+  border-radius: 20px;
+  background-color: rgba(196, 172, 172, 0.384);
+}

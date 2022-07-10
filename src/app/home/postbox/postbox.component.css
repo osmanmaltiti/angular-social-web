@@ -1,6 +1,6 @@
 .toggled {
-  height: 13.5rem;
+  height: 100vh;
+  width: 100vw;
   padding: 0.5rem;
-  transition: 100ms linear;
-  padding-top: 3.5rem;
+  padding-top: 1.5rem;
 }

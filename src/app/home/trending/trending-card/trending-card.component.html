@@ -9,7 +9,9 @@
   </span>
   <ul class="flex flex-col flex-grow">
     <li>{{ popularUser.fullname }}</li>
-    <li class="text-sm">follows you</li>
+    <li class="text-sm italic font-light">
+      {{ followStatus.follower ? "follows you" : "" }}
+    </li>
   </ul>
   <button
     (click)="follow()"

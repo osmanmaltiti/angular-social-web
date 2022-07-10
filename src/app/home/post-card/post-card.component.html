@@ -10,8 +10,8 @@
         />
       </span>
       <ul class="flex flex-col">
-        <li class="text-base">{{ postData.fullName }}</li>
-        <li class="text-sm font-light">@{{ postData.userName }}</li>
+        <li class="font-medium">{{ postData.fullName }}</li>
+        <li class="text-xs font-light">@{{ postData.userName }}</li>
       </ul>
     </span>
     <ul class="flex flex-col">
@@ -24,7 +24,7 @@
       <li class="text-sm font-light">{{ timeCreated.getFullYear() }}</li>
     </ul>
   </div>
-  <div class="text-sm w-full px-2">
+  <div class="text w-full px-2">
     {{ postData.post }}
   </div>
   <ul class="justify-evenly flex flex-row">

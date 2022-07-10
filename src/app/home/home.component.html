@@ -6,6 +6,7 @@
     <app-postbox
       [setOpen]="openPostBox"
       (oncreatepost)="onGetPosts(); togglePostBox()"
+      (clickoutside)="togglePostBox()"
     ></app-postbox>
     <!-- MiniProfileCard -->
     <app-miniprofilecard
@@ -37,7 +38,7 @@
     <!-- FloatActionButton -->
     <button
       (click)="togglePostBox()"
-      class="w-[2.5rem] h-[2.5rem] rounded-full bg-sky-400 fixed bottom-2 right-2 grid place-items-center text-primary-cream"
+      class="w-[2.5rem] h-[2.5rem] rounded-full bg-sky-400 fixed bottom-2 right-2 grid place-items-center z-30 text-primary-cream"
     >
       <div [ngClass]="{ pencil: openPostBox }">
         <span class="iconify text-2xl" data-icon="jam:pencil-f"></span>

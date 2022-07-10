@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-miniprofilecard',
   templateUrl: './miniprofilecard.component.html',
-  styleUrls: ['./miniprofilecard.component.css']
+  styleUrls: ['./miniprofilecard.component.css'],
 })
 export class MiniprofilecardComponent implements OnInit {
+  @Input('miniprofile-data') miniprofile = {
+    userdata: {
+      username: '',
+      bio: '',
+      createdAt: '',
+    },
+    follow: {
+      following: [],
+      followers: [],
+    },
+  };
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

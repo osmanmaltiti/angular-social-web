@@ -6,6 +6,7 @@
     <app-postbox [setOpen]="openPostBox"></app-postbox>
     <!-- MiniProfileCard -->
     <app-miniprofilecard
+      [miniprofile-data]="miniProfile"
       class="hidden lg:flex w-[30%] sticky top-[3.5rem] h-fit flex-col items-center 2xl:items-end 2xl:mr-4"
     ></app-miniprofilecard>
     <!--PostCards-->
@@ -22,7 +23,7 @@
       class="hidden lg:flex flex-col w-[30%] h-[calc(100vh-3.5rem)] gap-4 lg:flex-col sticky top-[3.5rem] 2xl:pl-4"
     >
       <!-- Trending -->
-      <app-trending class="h-[48%]"></app-trending>
+      <app-trending class="h-[48%]" [popular]="popular"></app-trending>
       <!-- Chat -->
       <app-chat class="h-[48%]"></app-chat>
     </div>

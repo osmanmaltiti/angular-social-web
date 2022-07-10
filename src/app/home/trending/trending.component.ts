@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-trending',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trending.component.css'],
 })
 export class TrendingComponent implements OnInit {
-  dummyArray: number[] = [1, 2, 3, 4, 5];
+  @Input('popular') popular: any[] = [];
+
   constructor() {}
 
   ngOnInit(): void {}

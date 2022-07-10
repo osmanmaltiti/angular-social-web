@@ -40,8 +40,8 @@ export class RegisterComponent implements OnInit {
       this.registerService.createUser(addExtras).subscribe({
         next: (value) => {
           if (value.status === 'Success') {
-            localStorage.setItem('token', value.token);
-            localStorage.setItem('id', value.id);
+            localStorage.setItem('token', JSON.stringify(value.token));
+            localStorage.setItem('id', JSON.stringify(value.id));
             this.router.navigate(['/']);
           }
         },

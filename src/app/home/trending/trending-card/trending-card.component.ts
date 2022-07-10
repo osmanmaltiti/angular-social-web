@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-trending-card',
   templateUrl: './trending-card.component.html',
-  styleUrls: ['./trending-card.component.css']
+  styleUrls: ['./trending-card.component.css'],
 })
 export class TrendingCardComponent implements OnInit {
+  @Input('popularUser') popularUser: { fullname: string; id: string } = {
+    fullname: '',
+    id: '',
+  };
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

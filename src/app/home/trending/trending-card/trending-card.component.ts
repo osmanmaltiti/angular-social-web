@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FollowService } from './../../../services/follow.service';
 
 @Component({
   selector: 'app-trending-card',
@@ -6,11 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./trending-card.component.css'],
 })
 export class TrendingCardComponent implements OnInit {
-  @Input('popularUser') popularUser: { fullname: string; id: string } = {
+  @Output('onfollow') onfollow: EventEmitter<any> = new EventEmitter();
+  @Input('popularUser') popularUser: { fullname: string; email: string } = {
     fullname: '',
-    id: '',
+    email: '',
   };
-  constructor() {}
+
+  constructor(private followService: FollowService) {}
 
   ngOnInit(): void {}
+
+  follow() {
+    this.followService.onFollow(this.popularUser.email).subscribe({
+      next: () => this.onfollow.emit(),
+      error: ({ error }) => console.log(error),
+    });
+  }
 }

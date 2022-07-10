@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-trending',
@@ -7,6 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TrendingComponent implements OnInit {
   @Input('popular') popular: any[] = [];
+  @Output('onFollow') onfollow: EventEmitter<any> = new EventEmitter();
+
+  onFollow() {
+    this.onfollow.emit();
+  }
 
   constructor() {}
 

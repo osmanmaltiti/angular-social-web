@@ -12,3 +12,13 @@
   overflow: visible;
   padding: 4rem 0.25rem;
 }
+
+@media (min-width: 1024px) {
+  .dropdownmenu {
+    width: 30%;
+    justify-items: flex-end;
+    overflow: visible;
+    padding: 4rem 0.25rem;
+    background-color: #3f3f3f;
+  }
+}

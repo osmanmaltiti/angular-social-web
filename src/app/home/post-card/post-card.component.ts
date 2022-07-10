@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPosts } from '../../services/post.service';
 import { InteractionCountService } from './../../services/interaction-count.service';
+import { LikeUnlikeService } from './../../services/like-unlike.service';
 
 @Component({
   selector: 'app-post-card',
@@ -23,9 +24,12 @@ export class PostCardComponent implements OnInit {
     comments: 0,
   };
 
-  constructor(private interactionCountService: InteractionCountService) {}
+  constructor(
+    private interactionCountService: InteractionCountService,
+    private likeUnlikeService: LikeUnlikeService
+  ) {}
 
-  ngOnInit(): void {
+  onGetInteractions() {
     this.interactionCountService
       .getInteractionCount(this.postData.id)
       .subscribe({
@@ -36,5 +40,23 @@ export class PostCardComponent implements OnInit {
         },
         error: ({ error }) => console.log(error),
       });
+  }
+
+  ngOnInit(): void {
+    this.onGetInteractions();
+  }
+
+  onLikePost() {
+    this.likeUnlikeService.likePost(this.postData.id).subscribe({
+      next: () => this.onGetInteractions(),
+      error: ({ error }) => console.log(error),
+    });
+  }
+
+  onUnlikePost() {
+    this.likeUnlikeService.unlikePost(this.postData.id).subscribe({
+      next: () => this.onGetInteractions(),
+      error: ({ error }) => console.log(error),
+    });
   }
 }

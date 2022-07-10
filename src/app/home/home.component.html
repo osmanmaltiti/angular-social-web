@@ -23,7 +23,11 @@
       class="hidden lg:flex flex-col w-[30%] h-[calc(100vh-3.5rem)] gap-4 lg:flex-col sticky top-[3.5rem] 2xl:pl-4"
     >
       <!-- Trending -->
-      <app-trending class="h-[48%]" [popular]="popular"></app-trending>
+      <app-trending
+        class="h-[48%]"
+        [popular]="popular"
+        (onFollow)="onGetMiniProfile()"
+      ></app-trending>
       <!-- Chat -->
       <app-chat class="h-[48%]"></app-chat>
     </div>

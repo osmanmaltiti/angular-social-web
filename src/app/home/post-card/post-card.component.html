@@ -29,14 +29,21 @@
   </div>
   <ul class="justify-evenly flex flex-row">
     <li class="flex flex-row items-center gap-1">
-      <span class="iconify text-2xl" data-icon="icon-park-outline:like"></span>
+      <button (click)="onLikePost()">
+        <span
+          class="iconify text-2xl"
+          data-icon="icon-park-outline:like"
+        ></span>
+      </button>
       <p>{{ interactions.likes }}</p>
     </li>
     <li class="flex flex-row items-center gap-1">
-      <span
-        class="iconify text-2xl"
-        data-icon="icon-park-outline:dislike"
-      ></span>
+      <button (click)="onUnlikePost()">
+        <span
+          class="iconify text-2xl"
+          data-icon="icon-park-outline:dislike"
+        ></span>
+      </button>
       <p>{{ interactions.unlikes }}</p>
     </li>
     <li class="flex flex-row items-center gap-1">

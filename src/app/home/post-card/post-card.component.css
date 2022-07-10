@@ -1,0 +1,9 @@
+.liked {
+  fill: green;
+  color: green;
+}
+
+.unliked {
+  fill: red;
+  color: red;
+}

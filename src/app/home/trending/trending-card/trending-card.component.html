@@ -15,6 +15,6 @@
     (click)="follow()"
     class="bg-[#3f3f3f] py-[0.15rem] rounded h-fit px-4 text-white"
   >
-    Follow
+    {{ followStatus.following ? "Unfollow" : "Follow" }}
   </button>
 </div>

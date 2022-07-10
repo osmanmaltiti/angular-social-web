@@ -18,10 +18,18 @@ export class PostCardComponent implements OnInit {
   };
   timeCreated = new Date(Number(this.postData.createdAt));
 
-  interactions: { likes: number; unlikes: number; comments: number } = {
+  interactions: {
+    likes: number;
+    unlikes: number;
+    comments: number;
+    hasLiked: boolean;
+    hasUnliked: boolean;
+  } = {
     likes: 0,
     unlikes: 0,
     comments: 0,
+    hasLiked: false,
+    hasUnliked: false,
   };
 
   constructor(
@@ -37,6 +45,8 @@ export class PostCardComponent implements OnInit {
           this.interactions.comments = value.commentsCount;
           this.interactions.likes = value.likesCount;
           this.interactions.unlikes = value.unlikesCount;
+          this.interactions.hasLiked = value.hasLiked;
+          this.interactions.hasUnliked = value.hasUnliked;
         },
         error: ({ error }) => console.log(error),
       });

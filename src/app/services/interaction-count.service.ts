@@ -12,6 +12,8 @@ export class InteractionCountService {
       commentsCount: number;
       likesCount: number;
       unlikesCount: number;
+      hasLiked: boolean;
+      hasUnliked: boolean;
     }>('http://localhost:5000/api/v1/post/get-interactions-count', {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       params: new HttpParams().set('postId', postId),

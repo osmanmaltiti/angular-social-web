@@ -29,7 +29,10 @@
   </div>
   <ul class="justify-evenly flex flex-row">
     <li class="flex flex-row items-center gap-1">
-      <button (click)="onLikePost()">
+      <button
+        (click)="onLikePost()"
+        [ngClass]="{ liked: interactions.hasLiked }"
+      >
         <span
           class="iconify text-2xl"
           data-icon="icon-park-outline:like"
@@ -38,7 +41,10 @@
       <p>{{ interactions.likes }}</p>
     </li>
     <li class="flex flex-row items-center gap-1">
-      <button (click)="onUnlikePost()">
+      <button
+        (click)="onUnlikePost()"
+        [ngClass]="{ unliked: interactions.hasUnliked }"
+      >
         <span
           class="iconify text-2xl"
           data-icon="icon-park-outline:dislike"

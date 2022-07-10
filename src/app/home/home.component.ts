@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GetPopularService } from '../services/get-popular.service';
 import { GetMiniProfileService } from '../services/mini-profile.service';
@@ -24,8 +23,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private postService: PostService,
     private getPopularService: GetPopularService,
-    private getMiniProfileService: GetMiniProfileService,
-    private http: HttpClient
+    private getMiniProfileService: GetMiniProfileService
   ) {}
 
   ngOnInit(): void {

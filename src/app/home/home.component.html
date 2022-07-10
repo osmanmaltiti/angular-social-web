@@ -3,7 +3,10 @@
     <!-- Navbar -->
     <app-navbar></app-navbar>
     <!-- PostBox -->
-    <app-postbox [setOpen]="openPostBox"></app-postbox>
+    <app-postbox
+      [setOpen]="openPostBox"
+      (oncreatepost)="onGetPosts(); togglePostBox()"
+    ></app-postbox>
     <!-- MiniProfileCard -->
     <app-miniprofilecard
       [miniprofile-data]="miniProfile"

@@ -18,9 +18,17 @@
     <span class="flex flex-col w-full gap-2">
       <div class="w-full h-[118px] flex-shrink-0 bg-white relative">
         <textarea
+          *ngIf="!postTypeIsImage"
           [(ngModel)]="post"
           class="w-full h-full bg-white ring-gray-300 rounded focus:ring-primary-black ring-1 resize-none relative p-1 focus:outline-none"
+          placeholder="What's on your mind?"
         ></textarea>
+        <input
+          *ngIf="postTypeIsImage"
+          class="w-full h-full bg-white border border-gray-300 border-dashed rounded relative p-1 focus:outline-none"
+          type="file"
+          (change)="onChange($event)"
+        />
         <button
           (click)="createPost()"
           class="w-[2rem] h-[2rem] rounded-full bg-[#3f3f3f] hover:bg-sky-500 absolute bottom-2 right-2 grid place-items-center text-primary-cream"
@@ -29,9 +37,30 @@
         </button>
       </div>
       <ul class="flex flex-row w-full justify-between">
-        <li class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded">Image</li>
-        <li class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded">Video</li>
-        <li class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded">Audio</li>
+        <li>
+          <button
+            class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded"
+            (click)="onTogglePostType()"
+          >
+            Image
+          </button>
+        </li>
+        <li>
+          <button
+            class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded"
+            (click)="onTogglePostType()"
+          >
+            Video
+          </button>
+        </li>
+        <li>
+          <button
+            class="bg-[#3f3f3f] text-white px-6 py-1 text-sm rounded"
+            (click)="onTogglePostType()"
+          >
+            Audio
+          </button>
+        </li>
       </ul>
     </span>
   </div>

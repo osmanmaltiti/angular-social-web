@@ -16,10 +16,6 @@ export class HomeComponent implements OnInit {
   fetchFailed: string = '';
   fetchPopularFailed: string = '';
 
-  togglePostBox() {
-    this.openPostBox = !this.openPostBox;
-  }
-
   constructor(
     private postService: PostService,
     private getPopularService: GetPopularService,
@@ -42,9 +38,19 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  togglePostBox() {
+    this.openPostBox = !this.openPostBox;
+  }
+
   onGetMiniProfile() {
     this.getMiniProfileService.getMiniProfile().subscribe({
-      next: (value) => (this.miniProfile = value.data),
+      next: (value) => {
+        this.miniProfile = value.data;
+        localStorage.setItem(
+          'username',
+          JSON.stringify(value.data.userdata.username)
+        );
+      },
       error: ({ error }) => (this.fetchPopularFailed = error.message),
     });
   }

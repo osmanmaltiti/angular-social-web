@@ -1,13 +1,13 @@
 <div class="w-full bg-primary-cream flex flex-col p-2 gap-2">
   <div class="flex flex-row w-full justify-between">
     <span class="flex flex-row gap-1">
-      <span class="w-12 h-12 rounded-full overflow-hidden shadow bg-red-400">
-        <img
-          alt="cover"
-          src="../../../assets/profile.jpg"
-          class="w-full h-full object-cover"
-          loading="lazy"
-        />
+      <span
+        class="w-12 h-12 rounded-full overflow-hidden shadow grid place-items-center"
+      >
+        <span
+          class="iconify w-full h-full text-gray-400"
+          data-icon="carbon:user-avatar-filled"
+        ></span>
       </span>
       <ul class="flex flex-col">
         <li class="font-medium">{{ postData.fullName }}</li>
@@ -24,9 +24,16 @@
       <li class="text-sm font-light">{{ timeCreated.getFullYear() }}</li>
     </ul>
   </div>
-  <div class="text w-full px-2">
+  <div *ngIf="!isFileUrl()" class="text w-full px-2">
     {{ postData.post }}
   </div>
+  <img
+    *ngIf="isFileUrl()"
+    alt="loading"
+    [src]="
+      'http://localhost:5000/api/v1/post/get-image?imageurl=' + postData.post
+    "
+  />
   <ul class="justify-evenly flex flex-row">
     <li class="flex flex-row items-center gap-1">
       <button

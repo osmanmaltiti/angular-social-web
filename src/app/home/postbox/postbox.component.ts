@@ -19,9 +19,13 @@ export class PostboxComponent implements OnInit {
   @Output('clickoutside') clickOutside: EventEmitter<any> = new EventEmitter();
   @ViewChild('outsidepostbox') outsidepostbox: ElementRef | undefined;
   @Input('setOpen') setOpen: boolean = false;
-  post: string = '';
+
+  post: File | string = '';
+  postTypeIsImage: boolean = false;
 
   constructor(private createPostService: CreatePostService) {}
+
+  ngOnInit(): void {}
 
   createPost() {
     this.createPostService.onCreatePost(this.post).subscribe({
@@ -30,11 +34,18 @@ export class PostboxComponent implements OnInit {
     });
   }
 
+  onChange(event: any) {
+    this.post = event.target.files[0];
+  }
+
   onClickOutside(event: Event) {
     if (<HTMLElement>event.target === this.outsidepostbox?.nativeElement) {
       this.setOpen = false;
       this.clickOutside.emit();
     }
   }
-  ngOnInit(): void {}
+
+  onTogglePostType() {
+    this.postTypeIsImage = !this.postTypeIsImage;
+  }
 }

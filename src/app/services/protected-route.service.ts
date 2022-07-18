@@ -9,7 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { FakeAuth } from './fake-auth.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ProtectedRouteService implements CanActivate {
   constructor(private auth: FakeAuth, private router: Router) {}
   canActivate(

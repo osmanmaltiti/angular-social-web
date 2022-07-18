@@ -19,8 +19,9 @@ import { PostboxComponent } from './home/postbox/postbox.component';
 import { TrendingCardComponent } from './home/trending/trending-card/trending-card.component';
 import { TrendingComponent } from './home/trending/trending.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OtherProfilesComponent } from './profile/other-profiles/other-profiles.component';
+import { UserProfileComponent } from './profile/user-profile/user-profile.component';
 import { FakeAuth } from './services/fake-auth.service';
-import { ProtectedRouteService } from './services/protected-route.service';
 
 @NgModule({
   declarations: [
@@ -40,9 +41,11 @@ import { ProtectedRouteService } from './services/protected-route.service';
     PopupDirective,
     LoginComponent,
     AlertComponent,
+    UserProfileComponent,
+    OtherProfilesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [FakeAuth, ProtectedRouteService],
+  providers: [FakeAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

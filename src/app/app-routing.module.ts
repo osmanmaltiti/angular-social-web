@@ -4,10 +4,16 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { UserProfileComponent } from './profile/user-profile/user-profile.component';
 import { ProtectedRouteService } from './services/protected-route.service';
 
 const routes: Routes = [
   { path: '', canActivate: [ProtectedRouteService], component: HomeComponent },
+  {
+    path: 'profile',
+    canActivate: [ProtectedRouteService],
+    component: UserProfileComponent,
+  },
   {
     path: 'auth',
     component: AuthenticationComponent,

@@ -1,5 +1,5 @@
 <nav
-  class="w-full fixed top-0 h-[3rem] bg-gradient-to-b from-gray-600 to-transparent flex flex-row items-center z-20 lg:from-[#3f3f3f] lg:to-[#3f3f3f]"
+  class="w-full fixed top-0 h-[3rem] bg-gradient-to-b from-gray-600 to-transparent flex flex-row items-center z-30 lg:from-[#3f3f3f] lg:to-[#3f3f3f]"
 >
   <div class="flex flex-row w-full justify-between 2xl:justify-around lg:px-8">
     <span class="relative hidden lg:inline">
@@ -32,7 +32,7 @@
 </nav>
 <aside
   [ngClass]="{ dropdownmenu: mobileDropdown }"
-  class="fixed right-0 top-0 bg-primary-cream overflow-hidden w-0 h-screen flex flex-col items-center gap-2 shadow-lg transition-all pt-[4rem] z-10"
+  class="fixed right-0 top-0 bg-primary-cream overflow-hidden w-0 h-screen flex flex-col items-center gap-2 shadow-lg transition-all pt-[4rem] z-20"
 >
   <span class="relative w-[90%] mx-auto">
     <input
@@ -50,7 +50,7 @@
     class="flex flex-col w-full mt-4 items-center text-primary-black lg:text-white gap-2"
   >
     <li class="hover:bg-white lg:hover:text-primary-black w-[90%] py-1 rounded">
-      <button class="w-full mx-auto" href="#">Profile</button>
+      <button class="w-full mx-auto" routerLink="/profile">Profile</button>
     </li>
     <li class="hover:bg-white lg:hover:text-primary-black w-[90%] py-1 rounded">
       <button class="w-full mx-auto" href="#">Explore</button>

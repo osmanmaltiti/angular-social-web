@@ -40,10 +40,11 @@ export class TrendingCardComponent implements OnInit {
 
   getFollowStatus(email: string) {
     const token = JSON.parse(String(localStorage.getItem('token')));
+    const uid = JSON.parse(String(localStorage.getItem('id')));
     this.http
       .post<{ status: string; data: any }>(
         'http://localhost:5000/api/v1/user/follow-status',
-        { email },
+        { email, uid },
         {
           headers: new HttpHeaders({
             Authorization: 'Bearer ' + token,

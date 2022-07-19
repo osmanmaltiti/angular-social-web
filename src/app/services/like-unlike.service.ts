@@ -9,9 +9,10 @@ export class LikeUnlikeService {
   constructor(private http: HttpClient) {}
 
   likePost(postId: string) {
+    const uid = JSON.parse(String(localStorage.getItem('id')));
     return this.http.post<{ status: string; message: string }>(
       'http://localhost:5000/api/v1/post/like-post',
-      { postId },
+      { postId, uid },
       {
         headers: this.headers,
       }
@@ -19,9 +20,10 @@ export class LikeUnlikeService {
   }
 
   unlikePost(postId: string) {
+    const uid = JSON.parse(String(localStorage.getItem('id')));
     return this.http.post<{ status: string; message: string }>(
       'http://localhost:5000/api/v1/post/unlike-post',
-      { postId },
+      { postId, uid },
       {
         headers: this.headers,
       }

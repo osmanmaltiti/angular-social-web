@@ -7,9 +7,11 @@ export class FollowService {
 
   onFollow(email: string) {
     const token = JSON.parse(String(localStorage.getItem('token')));
+    const uid = JSON.parse(String(localStorage.getItem('id')));
+
     return this.http.post<{ status: string; message: string }>(
       'http://localhost:5000/api/v1/user/follow',
-      { email },
+      { email, uid },
       {
         headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       }

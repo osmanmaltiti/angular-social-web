@@ -24,14 +24,14 @@
       <li class="text-sm font-light">{{ timeCreated.getFullYear() }}</li>
     </ul>
   </div>
-  <div *ngIf="!isFileUrl()" class="text w-full px-2">
+  <div class="text w-full px-2">
     {{ postData.post }}
   </div>
   <img
-    *ngIf="isFileUrl()"
+    *ngIf="hasUrl()"
     alt="loading"
     [src]="
-      'http://localhost:5000/api/v1/post/get-image?imageurl=' + postData.post
+      'http://localhost:5000/api/v1/post/get-image?imageurl=' + postData.media
     "
   />
   <ul class="justify-evenly flex flex-row">

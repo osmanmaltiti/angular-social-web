@@ -20,7 +20,8 @@ export class PostboxComponent implements OnInit {
   @ViewChild('outsidepostbox') outsidepostbox: ElementRef | undefined;
   @Input('setOpen') setOpen: boolean = false;
 
-  post: File | string = '';
+  post: string = '';
+  media: File | null = null;
   postTypeIsImage: boolean = false;
 
   constructor(private createPostService: CreatePostService) {}
@@ -28,14 +29,14 @@ export class PostboxComponent implements OnInit {
   ngOnInit(): void {}
 
   createPost() {
-    this.createPostService.onCreatePost(this.post).subscribe({
+    this.createPostService.onCreatePost(this.post, this.media).subscribe({
       next: () => this.oncreatepost.emit(),
       error: ({ error }) => console.log(error),
     });
   }
 
   onChange(event: any) {
-    this.post = event.target.files[0];
+    this.media = event.target.files[0];
   }
 
   onClickOutside(event: Event) {

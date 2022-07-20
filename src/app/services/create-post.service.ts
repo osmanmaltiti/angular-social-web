@@ -5,23 +5,27 @@ import { Injectable } from '@angular/core';
 export class CreatePostService {
   constructor(private http: HttpClient) {}
 
-  onCreatePost(post: string | File) {
+  onCreatePost(post: string, media: null | File) {
     const token = JSON.parse(String(localStorage.getItem('token')));
     const username = JSON.parse(String(localStorage.getItem('username')));
     const formdata = new FormData();
-    if (post instanceof File) {
-      formdata.append('image', post, post.name);
+
+    if (media instanceof File) {
+      formdata.append('image', media, media.name);
+      formdata.append('post', post);
+    } else {
+      formdata.append('post', post);
     }
 
-    const route =
-      typeof post === 'string' ? 'create-post' : 'create-image-post';
-    const data = typeof post === 'string' ? { post } : formdata;
-
-    return this.http.post('http://localhost:5000/api/v1/post/' + route, data, {
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + token,
-        Username: username,
-      }),
-    });
+    return this.http.post(
+      'http://localhost:5000/api/v1/post/create-post',
+      formdata,
+      {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+          Username: username,
+        }),
+      }
+    );
   }
 }

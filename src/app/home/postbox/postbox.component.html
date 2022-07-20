@@ -16,7 +16,7 @@
       />
     </div>
     <span class="flex flex-col w-full gap-2">
-      <div class="w-full h-[118px] flex-shrink-0 bg-white relative">
+      <div class="w-full h-[148px] flex-shrink-0 bg-white relative">
         <textarea
           *ngIf="!postTypeIsImage"
           [(ngModel)]="post"
@@ -25,10 +25,16 @@
         ></textarea>
         <input
           *ngIf="postTypeIsImage"
-          class="w-full h-full bg-white border border-gray-300 border-dashed rounded relative p-1 focus:outline-none"
+          class="w-full bg-white border border-gray-300 border-dashed rounded relative p-1 focus:outline-none"
           type="file"
           (change)="onChange($event)"
         />
+        <textarea
+          *ngIf="postTypeIsImage"
+          [(ngModel)]="post"
+          class="w-full h-[70%] mt-1 bg-white ring-gray-300 rounded focus:ring-primary-black ring-1 resize-none relative p-1 focus:outline-none"
+          placeholder="What's on your mind?"
+        ></textarea>
         <button
           (click)="createPost()"
           class="w-[2rem] h-[2rem] rounded-full bg-[#3f3f3f] hover:bg-sky-500 absolute bottom-2 right-2 grid place-items-center text-primary-cream"

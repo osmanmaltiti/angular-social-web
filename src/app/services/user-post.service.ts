@@ -6,6 +6,7 @@ export interface IPosts {
   fullName: string;
   userName: string;
   post: string;
+  media: string;
   createdAt: string;
 }
 

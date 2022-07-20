@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IPosts } from '../../services/post.service';
 import { InteractionCountService } from './../../services/interaction-count.service';
 import { LikeUnlikeService } from './../../services/like-unlike.service';
@@ -8,13 +8,14 @@ import { LikeUnlikeService } from './../../services/like-unlike.service';
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.css'],
 })
-export class PostCardComponent implements OnInit, OnChanges {
+export class PostCardComponent implements OnInit {
   @Input('postData') postData: IPosts = {
     id: '',
     fullName: '',
     userName: '',
-    post: '',
     createdAt: '',
+    post: '',
+    media: '',
   };
   timeCreated = new Date(Number(this.postData.createdAt));
 
@@ -32,8 +33,8 @@ export class PostCardComponent implements OnInit, OnChanges {
     hasUnliked: false,
   };
 
-  isFileUrl(): boolean {
-    return /^[A-Z0-9._%+-]+\/+[0-9]+-[A-Z0-9._%+-]/gi.test(this.postData.post);
+  hasUrl(): boolean {
+    return /^[A-Z0-9._%+-]+\/+[0-9]+-[A-Z0-9._%+-]/gi.test(this.postData.media);
   }
 
   constructor(
@@ -59,8 +60,6 @@ export class PostCardComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.onGetInteractions();
   }
-
-  ngOnChanges(): void {}
 
   onLikePost() {
     this.likeUnlikeService.likePost(this.postData.id).subscribe({

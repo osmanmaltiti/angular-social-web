@@ -10,9 +10,15 @@
       type="email"
       ngModel
       name="email"
-      placeholder=""
+      email
+      #email="ngModel"
+      required
       class="w-full px-2 py-1 border-b-2 border-gray-400 focus:border-primary-black focus:outline-none"
-  /></span>
+    />
+    <p *ngIf="!email.valid && email.touched" class="italic">
+      Email is required
+    </p>
+  </span>
   <span class="flex flex-col w-[80%] relative"
     ><label for="password">Password</label>
     <input
@@ -20,9 +26,14 @@
       ngModel
       name="password"
       [type]="passwordFieldType"
+      required
+      #password="ngModel"
+      minlength="8"
       class="w-full px-2 py-1 border-b-2 border-gray-400 focus:border-primary-black focus:outline-none"
-      placeholder=""
     />
+    <p *ngIf="!password.valid && password.touched" class="italic">
+      Password should be more than 8 char
+    </p>
     <button
       *ngIf="passwordFieldType === 'password'"
       (click)="onObscure()"

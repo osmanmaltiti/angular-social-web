@@ -26,31 +26,33 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   onSignUp(formData: NgForm) {
-    const fieldisEmpty = Object.values(formData.value).some(
-      (item) => item === ''
-    );
+    if (formData.valid) {
+      const fieldisEmpty = Object.values(formData.value).some(
+        (item) => item === ''
+      );
 
-    if (!fieldisEmpty) {
-      const addExtras: ISignUpInfo = {
-        ...formData.value,
-        bio: "Here there, i'm on social web!",
-        age: 1,
-      };
+      if (!fieldisEmpty) {
+        const addExtras: ISignUpInfo = {
+          ...formData.value,
+          bio: "Here there, i'm on social web!",
+          age: 1,
+        };
 
-      this.registerService.createUser(addExtras).subscribe({
-        next: (value) => {
-          if (value.status === 'Success') {
-            localStorage.setItem('token', JSON.stringify(value.token));
-            localStorage.setItem('id', JSON.stringify(value.id));
-            this.router.navigate(['/']);
-          }
-        },
-        error: ({ error }) => {
-          this.errorMessage = error.message;
-        },
-      });
-    } else {
-      alert('All fields are required');
+        this.registerService.createUser(addExtras).subscribe({
+          next: (value) => {
+            if (value.status === 'Success') {
+              localStorage.setItem('token', JSON.stringify(value.token));
+              localStorage.setItem('id', JSON.stringify(value.id));
+              this.router.navigate(['/']);
+            }
+          },
+          error: ({ error }) => {
+            this.errorMessage = error.message;
+          },
+        });
+      } else {
+        alert('All fields are required');
+      }
     }
   }
 
